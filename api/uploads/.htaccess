@@ -1,0 +1,11 @@
+# Uploaded files must never be executable, no matter what extension they
+# end up with - this is a defence-in-depth layer on top of the strict
+# MIME-type whitelist enforced in upload_avatar.php. Deliberately no
+# `php_flag` directive here: that requires Apache's mod_php, which many
+# hosts (including DreamHost) don't use for PHP (FastCGI/PHP-FPM instead) -
+# an unrecognised directive makes Apache fail this whole .htaccess file,
+# which is exactly what caused 500s on every request under this folder,
+# including plain static file/image requests.
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|pht|phar|cgi|pl|py|asp|aspx|sh|exe)$">
+    Require all denied
+</FilesMatch>

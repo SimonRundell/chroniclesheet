@@ -1,0 +1,41 @@
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+
+# PHP secrets - only .config.sample.json / .config.live.json are ever
+# meant to be committed as templates; the real, dot-prefixed config files
+# and the deploy script (which carries live credentials once filled in)
+# must never be staged.
+api/.config.json
+api/.config.live.json
+public/.config.json
+
+# Deployment (carries live SFTP credentials once filled in)
+deploy-live.ps1
+
+# Uploaded user content
+api/uploads/avatars/*
+!api/uploads/avatars/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*

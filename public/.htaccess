@@ -1,0 +1,10 @@
+# SPA fallback: prerendered public pages (/, /privacy/, /terms/, etc.) are
+# real files on disk and get served as-is. Anything else that doesn't
+# correspond to a real file/directory (i.e. the authenticated app's
+# client-side routes like /app/characters/5) falls back to index.html so
+# React Router can take over and render it.
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
